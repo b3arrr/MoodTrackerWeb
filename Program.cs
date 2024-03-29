@@ -1,113 +1,121 @@
 ﻿
-string filePath = fileCreate();
-
-addMood(filePath);
-
-List<int> moodData = new List<int>(readMoodData(filePath));
-
-foreach(int a in moodData)
+internal class Program
 {
-    System.Console.WriteLine(a);
-}
-
-
-
-//Lis retrieves data from path.
-static List<int> readMoodData (string path)
-{
-    List<int> moodData = new List<int>();
-
-    try
+    private static void Main(string[] args)
     {
-        using(StreamReader sr = new StreamReader(path))
+        string filePath = fileCreate();
+
+        addMood(filePath);
+
+        List<string> moodData = readMoodData(filePath);
+
+        displayProgression(moodData);
+
+
+
+
+     
+
+        static void displayProgression(List<string> moodData)
         {
-            string line;
-            while ((line = sr.ReadLine()) != null)
+            foreach(string a in moodData)
             {
-                if(int.TryParse(line, out int moodRating))
+                System.Console.WriteLine(a);
+            }
+            
+        }
+
+
+            //List retrieves data from path.
+        static List<string> readMoodData(string path)
+            {
+                List<string> moodData = new List<string>();
+
+                try
                 {
-                    moodData.Add(moodRating);
+                    using (StreamReader sr = new StreamReader(path))
+                    {
+                        string line;
+                        while ((line = sr.ReadLine()) != null)
+                        {
+                            moodData.Add(line); // Add each line to moodData
+                        }
+                    }
                 }
+                catch (IOException e)
+                {
+
+                    Console.WriteLine("Error reading mood data: " + e.Message);
+                }
+                return moodData;
+            }
+
+
+
+        static void addMood(string filePath)
+        {
+                string currentTime = DateTime.Now.ToString("yyyy-MM-dd");
+            string moodEntry = $"{currentTime}: {todaysMood()}";
+            using (StreamWriter sw = File.AppendText(filePath))
+            {
+                sw.WriteLine(moodEntry);
             }
         }
-    }
-    catch (IOException e)
-    {
-
-        System.Console.WriteLine("Error reading mood data: " + e.Message);
-    }
-    return moodData;
-}
-
-
-static void addMood(string filePath)
-{
-using (StreamWriter sw = File.AppendText(filePath))
-{
-    sw.WriteLine(todaysMood());
-}
-}
 
 
 
 
-    static string fileCreate()
-    {
-        string currentDirectory = Directory.GetCurrentDirectory();
-
-        string filePath = Path.Combine(currentDirectory, "mood", "file.txt");
-        string pathDirectory = Path.Combine(currentDirectory, "mood");
-        
-        if (!Directory.Exists(filePath))
+        static string fileCreate()
         {
-            Directory.CreateDirectory(pathDirectory);
-        }
+            string currentDirectory = Directory.GetCurrentDirectory();
 
-        if (!File.Exists(filePath))
-        {
-            
-            File.CreateText(filePath);
-           /*  // Create a file to write to.
-            using (StreamWriter sw = File.CreateText(filePath))
+            string filePath = Path.Combine(currentDirectory, "mood", "file.txt");
+            string pathDirectory = Path.Combine(currentDirectory, "mood");
+
+            if (!Directory.Exists(filePath))
             {
-                sw.WriteLine("Hello");
-                sw.WriteLine("And");
-                sw.WriteLine("Welcome");
-            } */
+                Directory.CreateDirectory(pathDirectory);
+            }
+
+            if (!File.Exists(filePath))
+            {
+
+                File.CreateText(filePath);
+            
+            }
+
+            return filePath;
         }
 
-        return filePath;
-    }
-
-static int todaysMood()
-{
 
 
-string ?userInputString;
-int userInput;
-while(true)
-{
-    Console.WriteLine("How are you feeling from a scale from 1-10");
-    userInputString = Console.ReadLine();
-    if(int.TryParse(userInputString, out userInput))
-    {
-        if(userInput <= 10 && userInput >= 1)
+        static int todaysMood()
         {
-            break;
+            string? userInputString;
+            int userInput;
+            while (true)
+            {
+                Console.WriteLine("How are you feeling from a scale from 1-10");
+                userInputString = Console.ReadLine();
+                if (int.TryParse(userInputString, out userInput))
+                {
+                    if (userInput <= 10 && userInput >= 1)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Incorrect input, please write a number between 1-10");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Please enter a valid input");
+                }
         }
-        else
-        {
-            Console.WriteLine("Incorrect input, please write a number between 1-10");
-        }
-    }
-    else 
-    {
-        Console.WriteLine("Please enter a valid input");
+
+        return userInput;
+
+        }      
     }
 }
-
-    return userInput;
-
-}
-
-
