@@ -1,0 +1,14 @@
+D:\programmering\C#\Projects\c#projects\learningStuff\bin\Debug\net8.0\learningStuff.exe
+D:\programmering\C#\Projects\c#projects\learningStuff\bin\Debug\net8.0\learningStuff.deps.json
+D:\programmering\C#\Projects\c#projects\learningStuff\bin\Debug\net8.0\learningStuff.runtimeconfig.json
+D:\programmering\C#\Projects\c#projects\learningStuff\bin\Debug\net8.0\learningStuff.dll
+D:\programmering\C#\Projects\c#projects\learningStuff\bin\Debug\net8.0\learningStuff.pdb
+D:\programmering\C#\Projects\c#projects\learningStuff\obj\Debug\net8.0\learningStuff.GeneratedMSBuildEditorConfig.editorconfig
+D:\programmering\C#\Projects\c#projects\learningStuff\obj\Debug\net8.0\learningStuff.AssemblyInfoInputs.cache
+D:\programmering\C#\Projects\c#projects\learningStuff\obj\Debug\net8.0\learningStuff.AssemblyInfo.cs
+D:\programmering\C#\Projects\c#projects\learningStuff\obj\Debug\net8.0\learningStuff.csproj.CoreCompileInputs.cache
+D:\programmering\C#\Projects\c#projects\learningStuff\obj\Debug\net8.0\learningStuff.dll
+D:\programmering\C#\Projects\c#projects\learningStuff\obj\Debug\net8.0\refint\learningStuff.dll
+D:\programmering\C#\Projects\c#projects\learningStuff\obj\Debug\net8.0\learningStuff.pdb
+D:\programmering\C#\Projects\c#projects\learningStuff\obj\Debug\net8.0\learningStuff.genruntimeconfig.cache
+D:\programmering\C#\Projects\c#projects\learningStuff\obj\Debug\net8.0\ref\learningStuff.dll
